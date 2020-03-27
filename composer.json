@@ -3,7 +3,7 @@
   "description": "This Package makes it possible for users to have their config files stored in a database table, making it easier to customize these values from UI.",
   "type": "library",
   "require": {
-    "laravel/laravel": ">5.8"
+    "laravel/framework": "~5.8.0|^6.0|^7.0"
   },
   "license": "MIT",
   "authors": [
