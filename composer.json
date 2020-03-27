@@ -1,0 +1,28 @@
+{
+  "name": "emadha/laravel-dynamic-config",
+  "description": "This Package makes it possible for users to have their config files stored in a database table, making it easier to customize these values from UI.",
+  "type": "library",
+  "require": {
+    "laravel/laravel": ">5.8"
+  },
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Emad Ha",
+      "email": "me@emadha.com"
+    }
+  ],
+  "minimum-stability": "dev",
+  "autoload": {
+    "psr-4": {
+      "EmadHa\\DynamicConfig\\": "src/"
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "EmadHa\\DynamicConfig\\ServiceProvider"
+      ]
+    }
+  }
+}
