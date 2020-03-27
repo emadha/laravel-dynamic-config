@@ -7,7 +7,7 @@ This Package makes it possible for users to have their config files stored in a 
 ## Installation
 You can install the package via composer:
 ``` bash
-composer require emadha/eloquent-views
+composer require emadha/laravel-dynamic-config
 ```
 The package will automatically register itself.
 
@@ -15,12 +15,12 @@ You can publish the config with:
 
 Config file:
 ``` bash
-php artisan vendor:publish --provider="EmadHa\EloquentViews\ServiceProvider" --tag="config"
+php artisan vendor:publish --provider="EmadHa\DynamicConfig\ServiceProvider" --tag="config"
 ```
 
 Migration:
 ```bash
-php artisan vendor:publish --provider="EmadHa\EloquentViews\ServiceProvider" --tag="migrations"
+php artisan vendor:publish --provider="EmadHa\DynamicConfig\ServiceProvider" --tag="migrations"
 ```
  
 ## Usage
