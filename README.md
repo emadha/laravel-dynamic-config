@@ -25,9 +25,7 @@ php artisan vendor:publish --provider="EmadHa\EloquentViews\ServiceProvider" --t
  
 ## Usage
 
-First of all, you need to decide which config file(s) you want them to be stored in database by adding `'dynamic'=> true` to the file.
-
-Example:
+First of all, you need to decide which config file(s) you want them to be stored in database by adding `'dynamic'=> true` to the file, as simple as that:
 ```php
 # /config/app.php 
 return [
@@ -35,7 +33,13 @@ return [
      ...
 ];
 ```
-> Note that `dynamic` indicator is defined in `/config/emadha/dynamic-conf.php`:
+
+> * Note that `dynamic` indicator is defined in `/config/emadha/dynamic-conf.php`:
+> * You can add `dynamic=>true` to any config file to store it in database and fetch the values from there instead of using the actual config file
+> * The values defaults will be taken from the actual config file.
+> * You can have more than one config file loaded dynamically
+> * `dynamic=>true` can only be added in the first dimension of that config array.
+
 
 The main config file of this packages is located in `/config/emadha/dynamic-conf.php` and contains the following code:
 ```php
@@ -65,16 +69,16 @@ return [
     'auto_delete_orphan_keys' => true,
 ];
 ```
+The content of that file is pretty clear and well documented.
 
-The content of that file is pretty clear to the user and well documented.
-
-## Examples
+## Usage
 
 ```php
-echo config('app.name'); // Will get the value from a config key
-config('app.name')->setTo('Some New Value'); // will update the config key
-config('app.name')->default(); // Will return the default value (from the actual config file and not from the database)
-config('app.name')->revert(); // Will revert the value in database back to default 
+dd(config('app.name')); // Will return a Model object for that db row (key)
+echo config('app.name'); // Will get the value from a config key using __toString() method from the DynamicConfig Model;
+config('app.name')->setTo('Some New Value'); // will update that config key in database
+config('app.name')->default(); // Will return the default value of that key (from the actual config file and not from the database)
+config('app.name')->revert(); // Will revert the key value in database back to default (to what it is in the actual config file) 
 ```
 As simple as that.
 
